@@ -1,0 +1,24 @@
+{
+  "name": "workshop-tonkotsu-nodejs",
+  "description": "Boilerplate NodeJS webapp codebase",
+  "version": "0.0.1",
+  "private": true,
+  "license": "MIT",
+  "author": "pierluigi@github.com",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint */**.js",
+    "test": "nyc mocha",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "dependencies": {
+    "codecov": "^3.1.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "request": "2.46.0"
+  },
+  "devDependencies": {
+    "eslint": "5.5.0",
+    "prettier": "^1.17.0"
+  }
+}
