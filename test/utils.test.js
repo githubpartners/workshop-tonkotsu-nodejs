@@ -1,6 +1,14 @@
 var assert = require("assert");
 var utils = require("../lib/utils");
 
+var mochaAsync = fn => {
+  return done => {
+    fn.call().then(done, err => {
+      done(err);
+    });
+  };
+};
+
 describe("Utils", function() {
   describe("greetings", function() {
     it("Says Hello World", function() {
@@ -39,5 +47,15 @@ describe("Utils", function() {
     // it("returns empty string on missing argument", function() {
     //   assert.equal(utils.makeHeading(), "");
     // });
+  });
+
+  describe("fetchQuote", function() {
+    it(
+      "returns a nice msg",
+      mochaAsync(async () => {
+        const msg = await utils.fetchQuote();
+        assert.equal(msg, "Hey there bud");
+      })
+    );
   });
 });
