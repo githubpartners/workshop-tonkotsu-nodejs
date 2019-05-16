@@ -6,12 +6,12 @@ It will connect to GitHub's [Octocat API endpoint](https://api.github.com/octoca
 
 ### Demo (sucess)
 
-![out](https://raw.githubusercontent.com/githubpartners/workshop-tonkotsu-nodejs/master/out2.gif)
+![out](https://user-images.githubusercontent.com/1078545/57860397-bc7ff380-77ec-11e9-80f8-39e02ef3c035.gif)
 
 
 ### Demo (failure)
 
-![out](https://raw.githubusercontent.com/githubpartners/workshop-tonkotsu-nodejs/master/out.gif)
+![out](https://user-images.githubusercontent.com/1078545/57860396-bc7ff380-77ec-11e9-8f55-83b879e667d2.gif)
 
 ### Instructions
 
