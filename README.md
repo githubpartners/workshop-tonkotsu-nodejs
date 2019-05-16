@@ -1,5 +1,20 @@
 ## WIP
 
+This is the NodeJS version of our "Tonkotsu" workshop webapp.
+
+It will connect to GitHub's [Octocat API endpoint](https://api.github.com/octocat) and return the Zen quote of the day. E.g.:
+
+### Demo (sucess)
+
+![out](https://raw.githubusercontent.com/githubpartners/workshop-tonkotsu-nodejs/master/out2.gif)
+
+
+### Demo (failure)
+
+![out](https://raw.githubusercontent.com/githubpartners/workshop-tonkotsu-nodejs/master/out.gif)
+
+### Instructions
+
 Setup:
 
 ```
@@ -12,36 +27,8 @@ Tests:
 npm run test
 ```
 
-Run:
+Run server (defaults to localhost:3000):
 
 ```
 npm start
-
-# Should return something like:
-
-
-Fetching remote message... please wait.
-
-               MMM.           .MMM
-               MMMMMMMMMMMMMMMMMMM
-               MMMMMMMMMMMMMMMMMMM      _________________
-              MMMMMMMMMMMMMMMMMMMMM    |                 |
-             MMMMMMMMMMMMMMMMMMMMMMM   | Encourage flow. |
-            MMMMMMMMMMMMMMMMMMMMMMMM   |_   _____________|
-            MMMM::- -:::::::- -::MMMM    |/
-             MM~:~ 00~:::::~ 00~:~MM
-        .. MMMMM::.00:::+:::.00::MMMMM ..
-              .MM::::: ._. :::::MM.
-                 MMMM;:::::;MMMM
-          -MM        MMMMMMM
-          ^  M+     MMMMMMMMM
-              MMMMMMM MM MM MM
-                   MM MM MM MM
-                   MM MM MM MM
-                .~~MM~MM~MM~MM~~.
-             ~~~~MM:~MM~~~MM~:MM~~~~
-            ~~~~~~==~==~~~==~==~~~~~~
-             ~~~~~~==~==~==~==~~~~~~
-                 :~==~==~==~==~~
-                 
 ```
