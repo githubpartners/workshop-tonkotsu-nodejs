@@ -1,4 +1,4 @@
-## WIP
+## README
 
 This is the NodeJS version of our "Tonkotsu" workshop webapp.
 
@@ -14,6 +14,8 @@ It will connect to GitHub's [Octocat API endpoint](https://api.github.com/octoca
 ![out](https://user-images.githubusercontent.com/1078545/57860396-bc7ff380-77ec-11e9-8f55-83b879e667d2.gif)
 
 ### Instructions
+
+Please fork this repository and ensure you have a local working copy.
 
 Setup:
 
@@ -32,3 +34,5 @@ Run server (defaults to localhost:3000):
 ```
 npm start
 ```
+
+Follow the coach instructions and good luck!
