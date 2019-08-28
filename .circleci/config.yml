@@ -4,7 +4,7 @@ jobs: # ステップの集合
     working_directory: ~/mern-starter # ステップが実行されるディレクトリ
     docker: # Docker でステップを実行します
 
-      - image: circleci/node:4.8.2 # このイメージをすべての `steps` が実行されるプライマリコンテナとして使用します
+      - image: circleci/node:latest # このイメージをすべての `steps` が実行されるプライマリコンテナとして使用します
       - image: mongo:3.4.4 # このイメージをセカンダリサービスコンテナとして使用します
     steps: # 実行可能コマンドの集合
       - checkout # ソースコードを作業ディレクトリにチェックアウトする特別なステップ
@@ -14,10 +14,7 @@ jobs: # ステップの集合
       - restore_cache: # 依存関係キャッシュを復元する特別なステップ
           # 依存関係キャッシュについては https://circleci.com/docs/ja/2.0/caching/ をお読みください
           key: dependency-cache-{{ checksum "package.json" }}
- #     - run:
- #         name: install-nodebrew
- #         command: nodebrew install v6.14.2
-#          command: nodebrew use v6.14.2
+
       - run:
          name: install-npm-wee
          command: npm install
@@ -25,12 +22,12 @@ jobs: # ステップの集合
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-#      - run: # テストを実行
-#          name: test
-#          command: npm test
-#      - run: # カバレッジレポートを実行します
-#          name: code-coverage
-#          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - run: # テストを実行
+          name: test
+          command: npm test
+      - run: # カバレッジレポートを実行します
+          name: code-coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
       - store_artifacts: # テスト結果をアーティファクトとして保存する特別なステップ
           # アーティファクト (https://circleci.com/docs/ja/2.0/artifacts/) に表示するテストサマリーをアップロードします
           path: test-results.xml
