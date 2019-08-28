@@ -52,7 +52,7 @@ jobs: # ステップの集合
               git push https://heroku:7b1b33c9-83d8-45b4-8dc4-96fa097ee6e2@git.heroku.com/ghetest2.git master
             fi
             
-       - deploy:
+       - run:
           name: add audit
           command: |
              curl -X POST -H "Authorization: token ba9bf8eacefb8179c2d01132c7f7acaadbeeab32" https://github.com/api/v3/repos/uricker/workshop-tonkotsu-nodejs/deployments  -d '{  "ref": "master","payload": {   "deploy": "migrate"  },  "description": "Deploy request from hubot" }'
