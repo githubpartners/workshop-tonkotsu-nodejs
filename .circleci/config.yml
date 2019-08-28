@@ -54,4 +54,4 @@ jobs: # ステップの集合
       - deploy:
          name: add audit
          command: |
-            curl -X POST -H "Authorization: token 81ebb6bfed2a7bdffa7f65c880272993a38e99fc" https://github.com/api/v3/repos/uricker/workshop-tonkotsu-nodejs/deployments  -d '{  "ref": "master","payload": {   "deploy": "migrate"  },  "description": "Deploy request from hubot" }'
+            curl -X POST -H "Authorization: token 81ebb6bfed2a7bdffa7f65c880272993a38e99fc" https://github.com/api/v3/repos/uricker/workshop-tonkotsu-nodejs/deployments  -d '{  "ref": "master","required_contexts": "state",  "description": "Deploy request from hubot" }'
