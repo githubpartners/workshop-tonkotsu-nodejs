@@ -21,9 +21,9 @@ jobs: # ステップの集合
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: # テストを実行
-          name: test
-          command: npm test
+#      - run: # テストを実行
+#          name: test
+#          command: npm test
       - run: # カバレッジレポートを実行します
           name: code-coverage
           command: './node_modules/.bin/nyc report --reporter=text-lcov'
