@@ -44,6 +44,7 @@ jobs: # ステップの集合
           command: git push https://heroku:7b1b33c9-83d8-45b4-8dc4-96fa097ee6e2@git.heroku.com/ghetest.git ${CIRCLE_BRANCH}
       - deploy:
           name: Deploy Master to Heroku
-          |if [ "${CIRCLE_BRANCH}" == "master" ]; then
+          command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
               git push https://heroku:7b1b33c9-83d8-45b4-8dc4-96fa097ee6e2@git.heroku.com/ghetest2.git master
             fi
