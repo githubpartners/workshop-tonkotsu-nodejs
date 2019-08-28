@@ -14,9 +14,9 @@ jobs: # ステップの集合
       - restore_cache: # 依存関係キャッシュを復元する特別なステップ
           # 依存関係キャッシュについては https://circleci.com/docs/ja/2.0/caching/ をお読みください
           key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: install-npm-wee
-          command: npm install
+ #     - run:
+ #         name: install-npm-wee
+ #         command: npm install
       - save_cache: # 依存関係キャッシュを保存する特別なステップ
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
