@@ -17,7 +17,7 @@ jobs: # ステップの集合
       - run:
           name: install-nodebrew
           command: nodebrew install v6.14.2
-          command: nodebrew use v6.14.2
+#          command: nodebrew use v6.14.2
       - run:
          name: install-npm-wee
          command: npm install
