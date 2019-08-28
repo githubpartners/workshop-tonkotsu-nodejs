@@ -1,0 +1,39 @@
+version: 2 # CircleCI 2.0 を使用します
+jobs: # ステップの集合
+  build: # Workflows を使用しない実行では、エントリポイントとして `build` ジョブが必要
+    working_directory: ~/mern-starter # ステップが実行されるディレクトリ
+    docker: # Docker でステップを実行します
+
+      - image: circleci/node:4.8.2 # このイメージをすべての `steps` が実行されるプライマリコンテナとして使用します
+      - image: mongo:3.4.4 # このイメージをセカンダリサービスコンテナとして使用します
+    steps: # 実行可能コマンドの集合
+      - checkout # ソースコードを作業ディレクトリにチェックアウトする特別なステップ
+      - run:
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
+      - restore_cache: # 依存関係キャッシュを復元する特別なステップ
+          # 依存関係キャッシュについては https://circleci.com/docs/ja/2.0/caching/ をお読みください
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache: # 依存関係キャッシュを保存する特別なステップ
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: # テストを実行
+          name: test
+          command: npm test
+      - run: # カバレッジレポートを実行します
+          name: code-coverage
+          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+      - store_artifacts: # テスト結果をアーティファクトとして保存する特別なステップ
+          # アーティファクト (https://circleci.com/docs/ja/2.0/artifacts/) に表示するテストサマリーをアップロードします
+          path: test-results.xml
+          prefix: tests
+      - store_artifacts: # アーティファクト (https://circleci.com/docs/ja/2.0/artifacts/) に表示するため
+          path: coverage
+          prefix: coverage
+      - store_test_results: # テストサマリー (https://circleci.com/docs/ja/2.0/collect-test-data/) に表示するため
+          path: test-results.xml
+      # デプロイ例については https://circleci.com/docs/ja/2.0/deployment-integrations/ を参照してください
