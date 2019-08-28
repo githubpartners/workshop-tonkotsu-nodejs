@@ -43,7 +43,7 @@ jobs: # ステップの集合
           name: Deploy all to Heroku
           command: |
             if [ "${CIRCLE_BRANCH}" != "master" ]; then
-               git push https://heroku:7b1b33c9-83d8-45b4-8dc4-96fa097ee6e2@git.heroku.com/ghetest.git master
+               git push -f https://heroku:7b1b33c9-83d8-45b4-8dc4-96fa097ee6e2@git.heroku.com/ghetest.git master
             fi
       - deploy:
           name: Deploy Master to Heroku
