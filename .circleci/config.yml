@@ -20,7 +20,7 @@ jobs: # ステップの集合
 #          command: nodebrew use v6.14.2
       - run:
          name: install-npm-wee
-         command: npm install --use_strict
+         command: npm install
       - save_cache: # 依存関係キャッシュを保存する特別なステップ
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
