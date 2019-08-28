@@ -24,9 +24,9 @@ jobs: # ステップの集合
 #      - run: # テストを実行
 #          name: test
 #          command: npm test
-      - run: # カバレッジレポートを実行します
-          name: code-coverage
-          command: './node_modules/.bin/nyc report --reporter=text-lcov'
+#      - run: # カバレッジレポートを実行します
+#          name: code-coverage
+#          command: './node_modules/.bin/nyc report --reporter=text-lcov'
       - store_artifacts: # テスト結果をアーティファクトとして保存する特別なステップ
           # アーティファクト (https://circleci.com/docs/ja/2.0/artifacts/) に表示するテストサマリーをアップロードします
           path: test-results.xml
