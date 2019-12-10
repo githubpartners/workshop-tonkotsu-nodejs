@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1        
-    - name: install
+    - name: running install
       run: npm install
         
     - name: running test
