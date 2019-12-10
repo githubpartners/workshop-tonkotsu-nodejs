@@ -14,8 +14,7 @@ jobs:
     steps:
     - name: debug folder
       run: |
-        pwd
-        ls
+        pwd && ls
         
     - name: npm install, build, and test
       run: |
