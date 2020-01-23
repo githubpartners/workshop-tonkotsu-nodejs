@@ -1,8 +1,4 @@
-## Welcome to Incredible CI
-##   the best CI 
-##      EVER
-## EVER EVER EVARRR x 1000**99
-## EVER EVER EVARRR x 1000**99 +1
+
 
 This repository contains the base project part of our on-site GitHub Verified Partner workshop program. It is meant to be used for in-classroom training under the supervision of GitHub coaches.
 
