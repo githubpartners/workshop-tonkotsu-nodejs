@@ -13,4 +13,4 @@ jobs:
           PROJECT_ID: github-partners-ramen
           APPLICATION_CREDENTIALS: ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
         with:
-          args: app deploy app.yaml
+          args: app deploy appEngineDeploy.yaml
