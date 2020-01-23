@@ -13,6 +13,7 @@ const log404 = ctx =>
 const getZenQuote = async ctx => {
   const spinner = ora("Fetching Zen message of the day from GitHub").start();
   try {
+    bob.dobbs = 99
     ctx.zen = { msg: await fetchZen() };
     // ctx.zen = { msg: await "test" }; // for debugging
     spinner.succeed();
