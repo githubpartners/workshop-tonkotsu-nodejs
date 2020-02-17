@@ -8,7 +8,7 @@ const { render, status } = server.reply;
 const { fetchZen } = require("./lib/utils");
 
 const log404 = ctx =>
-  console.log(chalk`{red 404}   {green ${ctx.method}}    {bold ${ctx.url}}`);
+  console.log(chalk`{red 404}   {green ${ctx.method}}    {bold ${ctx.url}}`); // test comment version 1.1
 
 const getZenQuote = async ctx => {
   const spinner = ora("Fetching Zen message of the day from GitHub").start();
