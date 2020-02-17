@@ -15,7 +15,8 @@ describe("Utils", function() {
 
       assert.equal(utils.greetings("Ben"), "Hello Ben 👋👋");
 
-   
+
+     
     });
 
     it("Throws on missing params", function() {
