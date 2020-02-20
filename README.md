@@ -25,6 +25,8 @@ Setup:
 npm install 
 ```
 
+
+# Sample Commit
 Tests:
 
 ```
