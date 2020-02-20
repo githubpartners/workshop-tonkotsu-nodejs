@@ -21,11 +21,9 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
     - name: Upload artifact
-      uses: actions/upload-artifact@v1.0.0
+    - uses: actions/upload-artifact@master
       with:
-    # Artifact name
-        name: webpack
-    # Directory containing files to upload
+        name: webpack artifacts
         path: public/
       env:
         CI: true
