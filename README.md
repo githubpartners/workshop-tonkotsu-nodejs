@@ -40,4 +40,6 @@ npm start
 
 Follow the coach instructions and good luck!
 
-All merges to master must use a pr and require 1 approver REJECT ME
+All merges to master must use a pr and require 1 approver
+
+Challenge 4!
