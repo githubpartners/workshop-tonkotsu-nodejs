@@ -2,7 +2,7 @@ const server = require("server");
 const chalk = require("chalk");
 const ora = require("ora");
 
-// nodejs rocks
+// nodejs rocks foo
 
 const { error, get } = server.router;
 const { render, status } = server.reply;
