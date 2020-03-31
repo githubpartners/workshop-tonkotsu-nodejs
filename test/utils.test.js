@@ -23,7 +23,7 @@ describe("Utils", function() {
 
     it("Throws on empty string", function() {
       assert.throws(() => {
-        utils.greetings("JJL");
+        utils.greetings("");
       }, Error);
     });
 
