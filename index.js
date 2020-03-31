@@ -9,6 +9,8 @@ const { render, status } = server.reply;
 
 const { fetchZen } = require("./lib/utils");
 
+// nodjes sucks
+
 const log404 = ctx =>
   console.log(chalk`{red 404}   {green ${ctx.method}}    {bold ${ctx.url}}`);
 
