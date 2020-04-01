@@ -42,3 +42,12 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Deployment Action
+      uses: chrnorm/deployment-action@v1.2.0
+      with:
+        # Github repository token
+        token: ${{ secrets.GITHUB_TOKEN }}
+        # Descriptive message about the deployment
+        description: 'Azure deploy'
+        # The name of the environment for the deployment
+        environment: 'production'
