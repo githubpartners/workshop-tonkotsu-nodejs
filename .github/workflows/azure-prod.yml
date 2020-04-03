@@ -15,6 +15,8 @@ on:
   release:
     types: [created]
 
+name: azure-prod
+
 env:
   AZURE_WEBAPP_NAME: TeamWisconsinGithub    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
@@ -48,6 +50,6 @@ jobs:
       uses: unacast/actions-github-deployment-status@0.2
       with:
         # The GITHUB_TOKEN secret
-        github_token: ${{ secrets.GITHUB_CRED }}
+        github_token: ${{ secrets.TOKEN }}
         # The status to create. Can be one of error, failure, inactive, in_progress, queued pending, or success
         status: success
