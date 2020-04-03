@@ -46,10 +46,18 @@ jobs:
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         
-    - name: Create Github Deployment Status
-      uses: unacast/actions-github-deployment-status@0.2
+    - name: Deployment Action
+      uses: chrnorm/deployment-action@v1.2.0
       with:
-        # The GITHUB_TOKEN secret
-        github_token: ${{ secrets.TOKEN }}
-        # The status to create. Can be one of error, failure, inactive, in_progress, queued pending, or success
-        status: success
+        # Initial status for the deployment
+        initial_status: success
+        # The reference for the deployment
+        # ref: # optional
+        # Github repository token
+        token: ${{ secrets.TOKEN }}
+        # Target url location
+        # target_url: # optional
+        # Descriptive message about the deployment
+        description: Prod deployment
+        # The name of the environment for the deployment
+        # environment: # optional, default is production
