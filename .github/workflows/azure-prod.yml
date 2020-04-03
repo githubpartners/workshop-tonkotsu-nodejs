@@ -48,6 +48,6 @@ jobs:
       uses: unacast/actions-github-deployment-status@0.2
       with:
         # The GITHUB_TOKEN secret
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_CRED }}
         # The status to create. Can be one of error, failure, inactive, in_progress, queued pending, or success
         status: success
