@@ -9,15 +9,15 @@ on:
   pull_request:
     branches: [ master ]
 
+env:
+  AZURE_WEBAPP_NAME: 'tonkotsu-a'    
+  AZURE_WEBAPP_PACKAGE_PATH: '.'    
+  NODE_VERSION: '10.x'   
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -29,3 +29,9 @@ jobs:
     - run: npm test
       env:
         CI: true
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_APP_TEST }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
