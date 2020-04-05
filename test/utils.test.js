@@ -12,7 +12,7 @@ var mochaAsync = fn => {
 describe("Utils", function() {
   describe("greetings", function() {
     it("Says Hello World", function() {
-      assert.equal(utils.greetings("World"), "Hello World 👋👋");
+      assert.equal(utils.greetings("World"), "Hello World - HAHAA 👋👋");
     });
 
     it("Throws on missing params", function() {
@@ -34,20 +34,7 @@ describe("Utils", function() {
     });
   });
 
-  describe("makeHeading", function() {
-    it("wraps the string in a H1", function() {
-      assert.equal(utils.makeHeading("Title"), "<h1>Title</h1>");
-    });
 
-    // it("trims any excess padding", function() {
-    //   const out = utils.makeHeading(" Title with padding   ");
-    //   assert.equal(out, "<h1>Title with padding</h1>");
-    // });
-
-    // it("returns empty string on missing argument", function() {
-    //   assert.equal(utils.makeHeading(), "");
-    // });
-  });
 
   describe("fetchQuote", function() {
     it(
