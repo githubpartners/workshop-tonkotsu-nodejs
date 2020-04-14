@@ -7,7 +7,7 @@ This is the NodeJS version of our "Tonkotsu" workshop webapp. The codebase is pr
 ### Demo (sucess)
 
 ![out](https://user-images.githubusercontent.com/1078545/57860397-bc7ff380-77ec-11e9-80f8-39e02ef3c035.gif)
-
+blabla
 
 ### Demo (failure)
 
