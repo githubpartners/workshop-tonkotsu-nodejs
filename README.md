@@ -30,7 +30,7 @@ Tests:
 
 ```
 npm run test
-```
+```'
 
 Run server (defaults to localhost:3000):
 
