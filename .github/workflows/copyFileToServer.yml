@@ -21,3 +21,17 @@ jobs:
           password: github@2020
         env:
           CI: true
+          
+      - name: ls -a via ssh
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /opt/tonkotsu-nodejs
+            npm install
+            npm start
+          host: 13.229.147.148
+          username: root
+          password: github@2020
+        env:
+          CI: true
+        
