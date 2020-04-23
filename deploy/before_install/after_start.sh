@@ -1,3 +1,3 @@
 #!/bin/sh
-npm install
+cd /opt/tonkotsu-nodejs
 npm start
