@@ -8,19 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: setup demo
-        run: |
-          mkdir dist
-          cp -r * dist
       - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: dist
-          remote: /opt/tonkotsu-nodejs
-          host: 13.229.147.148
-          username: root
-          password: github@2020
-      - name: Copy single file to remote
         uses: garygrossgarten/github-action-scp@release
         with:
           local: dist
