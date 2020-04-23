@@ -26,7 +26,7 @@ jobs:
         env:
           CI: true
           
-      - name: Set Node.js version 5
+      - name: Set Node.js version v12.16.2
         uses: actions/setup-node@v1
         with:
            node-version: v12.16.2
