@@ -4,8 +4,12 @@ on:
   push
 
 jobs:
-  build:
+  linux:
+    name: Linux build on node v12.16.2
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node_version: [10.x, 12.x]
 
     steps:
       - name: checkout
@@ -22,16 +26,16 @@ jobs:
         env:
           CI: true
           
-      - name: ls -a via ssh
-        uses: fifsky/ssh-action@master
+      - name: Set Node.js version 5
+        uses: actions/setup-node@v1
         with:
-          command: |
-            cd /opt/tonkotsu-nodejs
-            npm install > SomeFile.txt
-            npm start > SomeFile.txt
-          host: 13.229.147.148
-          username: root
-          password: github@2020
+           node-version: v12.16.2
+          
+      - name: Install packages
+        run: npm install
+      - name: Run build
+        run: npm start
+        
         env:
           CI: true
         
