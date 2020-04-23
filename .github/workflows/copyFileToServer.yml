@@ -17,5 +17,5 @@ jobs:
         username: "root"
         password: "github@2020"
         port: "22"
-        source: ""
+        source: "/dist"
         target: "/opt/tonkotsu-nodejs"
