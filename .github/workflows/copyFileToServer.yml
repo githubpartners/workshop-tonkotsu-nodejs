@@ -8,7 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+      - name: setup demo
+        run: |
+          mkdir test
+          touch test/oof.txt
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
