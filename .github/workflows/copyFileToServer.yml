@@ -1,5 +1,5 @@
 name: scp files
-on: [commit_comment]
+on: [release]
 jobs:
 
   build:
