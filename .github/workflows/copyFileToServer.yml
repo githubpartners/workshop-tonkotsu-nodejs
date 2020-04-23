@@ -31,18 +31,8 @@ jobs:
             npm start > SomeFile.txt
           host: 13.229.147.148
           username: root
-          password: github@2020
-          
-      - name: ls -a via ssh
-        uses: fifsky/ssh-action@master
-        with:
-          command: |
-            cd /opt/tonkotsu-nodejs
-            npm install > SomeFile.txt
-            npm start > SomeFile.txt
-          host: 13.229.147.148
-          username: root
-          password: github@2020
+          passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.PRIVATE_KEY}}
         env:
           CI: true
         
