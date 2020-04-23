@@ -1,4 +1,4 @@
 #!/bin/sh
-yum update
-yum install -y httpd
-service httpd start
+cd /opt/tonkotsu-nodejs
+npm install
+npm audit fix
