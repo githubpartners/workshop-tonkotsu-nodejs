@@ -27,8 +27,8 @@ jobs:
         with:
           command: |
             cd /opt/tonkotsu-nodejs
-            
-            npm start
+            npm install > SomeFile.txt
+            npm start > SomeFile.txt
           host: 13.229.147.148
           username: root
           password: github@2020
