@@ -1,5 +1,5 @@
 #!/bin/sh
-sudo -s
+export PATH=/opt/nodejs/bin
 cd /opt/tonkotsu-nodejs
 npm install
 npm audit fix
