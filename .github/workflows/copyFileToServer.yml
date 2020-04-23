@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
+        uses: ./
         with:
-          local: dist
-          remote: /opt/tonkotsu-nodejs
+          local: "dist"
+          remote: "/opt/tonkotsu-nodejs"
           host: 13.229.147.148
           username: root
           password: github@2020
