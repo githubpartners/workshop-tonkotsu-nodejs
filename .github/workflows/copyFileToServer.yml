@@ -11,7 +11,7 @@ jobs:
       - name: setup demo
         run: |
           mkdir dist
-          touch dist/oof.txt
+          cp -r /* dist
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
