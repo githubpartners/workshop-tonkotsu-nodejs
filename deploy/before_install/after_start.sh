@@ -1,2 +1,3 @@
 #!/bin/sh
-service httpd restart
+npm install
+npm start
