@@ -1,0 +1,21 @@
+name: scp files
+on: 
+  commit:
+    branches:
+      - master
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
+      with:
+        host: "13.229.147.148"
+        username: "ec2-use"
+        password: "github@2020"
+        port: "22"
+        source: "/"
+        target: "/opt/tonkotsu-nodejs"
