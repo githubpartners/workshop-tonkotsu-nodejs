@@ -1,6 +1,6 @@
 name: scp files
 on: 
-  commit:
+  commit_comment:
     branches:
       - master
 jobs:
