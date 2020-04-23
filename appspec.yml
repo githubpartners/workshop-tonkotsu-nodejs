@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html/
+    destination: /opt/tonkotsu-nodejs/
 hooks:
   BeforeInstall:
     - location: deploy/before_install/before_start.sh
