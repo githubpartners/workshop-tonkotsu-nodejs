@@ -4,12 +4,8 @@ on:
   push
 
 jobs:
-  linux:
-    name: Linux build on node v12.16.2
+  build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node_version: [8.x, 10.x]
 
     steps:
       - name: checkout
@@ -26,19 +22,28 @@ jobs:
         env:
           CI: true
           
-      - name: Set Node.js version v12.16.2
-        uses: actions/setup-node@v1
+      - name: ls -a via ssh
+        uses: fifsky/ssh-action@master
         with:
-           node-version: v12.16.2
+          command: |
+            cd /opt/tonkotsu-nodejs
+            npm install > SomeFile.txt
+            npm start > SomeFile.txt
+          host: 13.229.147.148
+          username: root
+          password: github@2020
           
-      - name: Install packages
-        run: npm install
-        working-directory: "/opt/tonkotsu-nodejs"
-        
-      - name: Run build
-        run: npm start
-        working-directory: "/opt/tonkotsu-nodejs"
-        
+      - name: ls -a via ssh
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /opt/tonkotsu-nodejs
+            npm install > SomeFile.txt
+            npm start > SomeFile.txt
+          host: 13.229.147.148
+          username: root
+          password: github@2020
         env:
           CI: true
         
+    
