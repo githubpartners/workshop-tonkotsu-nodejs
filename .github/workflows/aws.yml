@@ -24,7 +24,7 @@
 #    and best practices on handling the access key credentials.
 
 on: 
-  push:
+  pull_request:
     branches:
       - master
 
