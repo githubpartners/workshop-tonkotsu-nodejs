@@ -33,9 +33,11 @@ jobs:
           
       - name: Install packages
         run: npm install
+        working-directory: "/opt/tonkotsu-nodejs"
         
       - name: Run build
         run: npm start
+        working-directory: "/opt/tonkotsu-nodejs"
         
         env:
           CI: true
