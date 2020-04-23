@@ -22,7 +22,7 @@ jobs:
         env:
           CI: true
           
-      - name: ls -a via ssh
+      - name: ls -a via ssh1
         uses: fifsky/ssh-action@master
         with:
           command: |
