@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [10.x, 12.x]
+        node_version: [8.x, 10.x]
 
     steps:
       - name: checkout
@@ -33,6 +33,7 @@ jobs:
           
       - name: Install packages
         run: npm install
+        
       - name: Run build
         run: npm start
         
