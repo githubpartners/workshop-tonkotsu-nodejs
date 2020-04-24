@@ -11,28 +11,17 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
         
-      - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: "."
-          remote: "/opt/tonkotsu-nodejs"
-          host: 13.229.147.148
-          username: root
-          password: github@2020
-        env:
-          CI: true
+     
           
       - name: ls -a via ssh1
         uses: fifsky/ssh-action@master
         with:
           command: |
             cd /opt/tonkotsu-nodejs
-            npm install > SomeFile.txt
-            npm start > SomeFile.txt
+            ll
           host: 13.229.147.148
           username: root
-          passphrase: ${{ secrets.passphrase }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          password: github@2020
         env:
           CI: true
         
