@@ -15,7 +15,7 @@ jobs:
         with:
           command: |
             cd /opt/tonkotsu-nodejs
-            kill all node
+            killall node
             rm -rf * 
           host: 13.229.147.148
           username: root
