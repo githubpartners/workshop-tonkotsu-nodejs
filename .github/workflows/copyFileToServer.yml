@@ -10,7 +10,17 @@ jobs:
     steps:
       - name: checkout1
         uses: actions/checkout@v1
-        
+      - name: Removeing the old distribution
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            cd /opt/tonkotsu-nodejs
+            rm -rf * 
+          host: 13.229.147.148
+          username: root
+          password: github@2020
+        env:
+          CI: true
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
@@ -22,13 +32,13 @@ jobs:
         env:
           CI: true
           
-      - name: ls -a via ssh
+      - name: Install the module and Run server
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: |
             cd /opt/tonkotsu-nodejs
-            npm install 
-            npm start 
+            npm install
+            npm start </dev/null &>/dev/null &
           host: 13.229.147.148
           username: root
           password: github@2020
