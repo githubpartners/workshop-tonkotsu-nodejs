@@ -18,7 +18,7 @@ jobs:
         with:
           command: |
             cd /opt/tonkotsu-nodejs
-            ll
+            ls -a
           host: 13.229.147.148
           username: root
           password: github@2020
