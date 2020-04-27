@@ -33,7 +33,7 @@ jobs:
         env:
           CI: true
           
-      - name: Install the module and Run server
+      - name: Install the module and Run stagging server
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: |
