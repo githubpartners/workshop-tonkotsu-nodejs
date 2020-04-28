@@ -76,5 +76,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: sample-app-service
-        cluster: CrestSupportDemoCluster
+        cluster: default
         wait-for-service-stability: true
