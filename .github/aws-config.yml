@@ -15,7 +15,7 @@
 # AWS S3 Bucket for package and deploy #
 ########################################
 # NOTE: This bucket must exist before the GitHub Action, and match the name of your S3 bucket on Amazon
-s3_bucket: crest-github-cd
+s3_bucket: crest-github-cd/aws-github-stage.zip
 
 ##################################
 # AWS Cloud Formation Stack name #
