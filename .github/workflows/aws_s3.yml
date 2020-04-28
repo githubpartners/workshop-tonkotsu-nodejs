@@ -65,4 +65,5 @@ jobs:
         env:
           AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_S3_BUCKET: "crest-github-cd/aws-github-prod.zip"
+          AWS_S3_BUCKET: crest-github-cd/aws-github-prod.zip
+          AWS_REGION: ap-southeast-1
