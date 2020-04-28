@@ -31,20 +31,19 @@ name: Deploy to Amazon ECS
 
 jobs:
   build:
-    if: contains(github.event.pull_request.labels.*.name, 'stage')
-
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
       - name: npm install and build webpack
         run: |
+          npm audit fix
           npm install
-          npm run build
+        
       - uses: actions/upload-artifact@master
         with:
           name: webpack artifacts
-          path: public/
+          path: dist/
 
   deploy:
     name: Deploy Node.js app to AWS
@@ -61,7 +60,7 @@ jobs:
           path: public
 
       - name: Deploy to AWS
-        uses: github/deploy-nodejs@master
+        uses:  github/deploy-nodejs@master
         env:
-          AWS_ACCESS_KEY: ${{ secrets.Access_key_ID }}
-          AWS_SECRET_KEY: ${{ secrets.Secret_access_key }}
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
