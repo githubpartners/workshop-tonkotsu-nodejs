@@ -41,8 +41,8 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           
-      - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: azure/webapps-deploy@v2
-      with: 
-        app-name: ghlab-staging
-        publish-profile: ${{ secrets.PUBLISH }}
+      - name: "Run Azure webapp deploy action using publish profile credentials"
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ghlab-staging
+          publish-profile: ${{ secrets.PUBLISH }}
