@@ -27,7 +27,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - run: npm report-coverage
+    - run: npm run report-coverage
     - uses: devmasx/coverage-check-action@v1.1.0
       with:
         type: lcov
