@@ -4,10 +4,10 @@ on:
       - master
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
+  AZURE_WEBAPP_NAME: 'workshop-sam-amal-glav'    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: '10.x'                # set this to the node version to use
-  AZURE_RESOURCEGROUP_NAME: 'rg-workshop-resources' # resource group name 
+  AZURE_RESOURCEGROUP_NAME: 'partner-workshop' # resource group name 
 
 jobs:
   deploy:
@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ env.NODE_VERSION }}
+    - run: npm install
     - name: Create Github Deployment
       id: deployment
       uses: chrnorm/deployment-action@v1.2.0
