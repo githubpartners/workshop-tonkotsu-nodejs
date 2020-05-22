@@ -24,7 +24,7 @@ jobs:
     - uses: actions/upload-artifact@master
       with:
         name: build artifacts
-        path: public/
+        path: ./build
 
   test:
     needs: build
@@ -40,7 +40,7 @@ jobs:
       - uses: actions/download-artifact@master
         with: 
           name: build artifacts
-          path: public
+          path: ./build
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
