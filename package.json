@@ -9,7 +9,7 @@
     "start": "node index.js",
     "lint": "eslint */**.js",
     "test": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov | codecov --pipe --disable=gcov -t 2e53b878-6b1f-4c9b-b6bf-73e2ec708888"
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov --disable=gcov -t 2e53b878-6b1f-4c9b-b6bf-73e2ec708888"
   },
   "dependencies": {
     "chalk": "^2.4.2",
