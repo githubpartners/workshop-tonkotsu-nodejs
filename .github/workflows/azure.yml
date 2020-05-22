@@ -1,5 +1,5 @@
 
-name: Azure Workflow
+name: Azure Workflow v1
 
 on:
     pull_request:
