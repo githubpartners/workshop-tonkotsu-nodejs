@@ -6,15 +6,15 @@ on:
 
 env:
   PACKAGES_TOKEN: ${{secrets.PACKAGES_TOKEN}}
-  AZURE_RESOURCE_GROUP: cd-with-actions
-  AZURE_APP_PLAN: actions-ttt-deployment
+  AZURE_RESOURCE_GROUP: partner-workshop
+  AZURE_APP_PLAN: partner-workshop-plan
   AZURE_LOCATION: '"Central US"'
   #################################################
   ### USER PROVIDED VALUES ARE REQUIRED BELOW   ###
   #################################################
   #################################################
   ### REPLACE USERNAME WITH GH USERNAME         ###
-  AZURE_WEBAPP_NAME: glav-ttt-app
+  AZURE_WEBAPP_NAME: workshop-sam-amal-glav
   #################################################
 
 jobs:
