@@ -1,0 +1,51 @@
+on:
+  pull_request:
+    branches: 
+      - master
+
+env:
+  AZURE_WEBAPP_NAME: your-app-name    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '10.x'                # set this to the node version to use
+  AZURE_RESOURCEGROUP_NAME: 'rg-workshop-resources' # resource group name 
+
+jobs:
+  deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Create Github Deployment
+      id: deployment
+      uses: chrnorm/deployment-action@v1.2.0
+      with:
+        token: ${{ github.token }}
+        ref: ${{ github.event.client_payload.pull_request.head.sha }}
+        environment: staging
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - run: |
+        az webapp deployment slot create --name ${{ env.AZURE_WEBAPP_NAME }} --resource-group ${{ env.AZURE_RESOURCEGROUP_NAME }} --slot staging
+    - name: 'Azure webapp deploy'
+      id: appsvc-deployment
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        slot-name: staging
+        package: ${{ AZURE_WEBAPP_PACKAGE_PATH }} 
+    - name: Update deployment status (success)
+      if: success()
+      uses: chrnorm/deployment-status@releases/v1
+      with:
+        token: "${{ github.token }}"
+        target-url: ${{ steps.appsvc-deployment.outputs.webapp-url }}
+        state: "success"
+        deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+    - name: logout
+      run: |
+        az logout
