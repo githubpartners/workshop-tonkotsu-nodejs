@@ -27,3 +27,10 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: npm report-coverage
+    - uses: devmasx/coverage-check-action@v1.1.0
+      with:
+        type: lcov
+        result_path: coverage.lcov
+        min_coverage: 90
+        token: ${{secrets.GITHUB_TOKEN}}
