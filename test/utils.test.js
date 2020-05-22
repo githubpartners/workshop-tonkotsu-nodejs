@@ -25,7 +25,6 @@ describe("Utils", function() {
     });
     */
 
-    /*
     it("Throws on empty string", function() {
       assert.throws(() => {
         utils.greetings("");
@@ -37,7 +36,6 @@ describe("Utils", function() {
         utils.greetings("Valid!");
       }, Error);
     });
-    */
   });
 
   describe("makeHeading", function() {
@@ -56,7 +54,6 @@ describe("Utils", function() {
   });
 
   describe("fetchQuote", function() {
-    /*
     it(
       "returns a nice msg",
       mochaAsync(async () => {
@@ -64,6 +61,5 @@ describe("Utils", function() {
         assert.equal(msg, "Hey there bud");
       })
     );
-    */
   });
 });
