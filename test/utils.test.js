@@ -17,13 +17,11 @@ describe("Utils", function() {
     });
     */
 
-    /*
     it("Throws on missing params", function() {
       assert.throws(() => {
         utils.greetings();
       }, Error);
     });
-    */
 
     it("Throws on empty string", function() {
       assert.throws(() => {
