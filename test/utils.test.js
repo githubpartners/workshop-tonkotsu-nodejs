@@ -54,7 +54,7 @@ describe("Utils", function() {
       "returns a nice msg",
       mochaAsync(async () => {
         const msg = await utils.fetchQuote();
-        assert.equal(msg, "Hey there bud");
+        assert.equal(msg, "Hey there budFAIL");
       })
     );
   });
