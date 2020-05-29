@@ -27,9 +27,3 @@ jobs:
     - run: npm install 
     - run: npm run test
 
-on: [push]
-name: Create an issue on push
-jobs:
-  stuff:
-    steps:
-      - uses: JasonEtco/create-an-issue@v2
