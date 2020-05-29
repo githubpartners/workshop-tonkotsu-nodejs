@@ -1,11 +1,13 @@
 name: Continous Integration
 
-on: commit
+on: push
 
 jobs:
   test:
     name: Test on commit
     runs_on: ubuntu-18.04
     steps:
+      - name: npm install
+        run: npm install
       - name: npm test
         run: npm run test
