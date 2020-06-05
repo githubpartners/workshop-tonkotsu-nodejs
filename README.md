@@ -1,4 +1,4 @@
-## Welcome Team 1!
+## Welcome Team 1! Test Pull Request Security Policy!
 
 This repository contains the base project part of our on-site GitHub Verified Partner workshop program. It is meant to be used for in-classroom training under the supervision of GitHub coaches.
 
