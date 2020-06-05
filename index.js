@@ -4,7 +4,7 @@ const ora = require("ora");
 
 const { error, get } = server.router;
 const { render, status } = server.reply;
-//test comment
+//test comments
 const { fetchZen } = require("./lib/utils");
 
 const log404 = ctx =>
