@@ -1,4 +1,4 @@
-## Welcome Team 2AB
+## Welcome Team 2ABC
 
 This repository contains the base project part of our on-site GitHub Verified Partner workshop program. It is meant to be used for in-classroom training under the supervision of GitHub coaches.
 
