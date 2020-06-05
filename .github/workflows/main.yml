@@ -31,3 +31,7 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+    
+    # push to master
+    - name: Push to master
+      uses: tcitry/push-to-master@v1.0
