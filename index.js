@@ -43,4 +43,4 @@ server(
   {green [ OK ]} Server launched on {bold http://localhost:${
     ctx.options.port
   }/}`);
-});
+})
