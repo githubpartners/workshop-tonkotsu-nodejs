@@ -22,6 +22,9 @@ const getZenQuote = async ctx => {
   }
 };
 
+// my comments here
+// scond comment
+// another one again
 server(
   { log: "debug", env: "development" },
   get("/", [
@@ -41,4 +44,4 @@ server(
   {green [ OK ]} Server launched on {bold http://localhost:${
     ctx.options.port
   }/}`);
-});
+})
