@@ -15,12 +15,14 @@
 on:
   release:
     types: [created]
-  pull_request:
+  push:
     branches:
       - master
 
 env:
-  NODE_VERSION: '10.x'                # set this to the node version to use
+  AZURE_WEBAPP_NAME: InsightGitHubTeam5   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root: 
+  NODE_VERSION: '12.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -39,4 +41,10 @@ jobs:
         npm install
         npm run build --if-present
         npm run test --if-present
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
