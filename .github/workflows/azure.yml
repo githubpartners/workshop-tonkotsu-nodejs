@@ -15,7 +15,7 @@
 on:
   release:
     types: [created]
-  pull_request:
+  push:
     branches:
       - master
 
