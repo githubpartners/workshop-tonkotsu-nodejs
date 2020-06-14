@@ -1,3 +1,5 @@
+name: Stage the app
+
 on:
   pull_request:
     branches:
@@ -11,8 +13,8 @@ env:
 
 jobs:
   build:
-    name: Build and Deploy
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ env.NODE_VERSION }}
@@ -23,12 +25,11 @@ jobs:
         run: |
           npm install 
           npm run test
-
+          
       - uses: actions/upload-artifact@master
-      with:
-        name: upload artifacts
-        path: public/
-
+        with:
+          name: artifacts
+          path: public/
 
   Build-Docker-Image:
     runs-on: ubuntu-latest
