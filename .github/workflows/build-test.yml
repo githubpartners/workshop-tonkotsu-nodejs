@@ -15,9 +15,4 @@ jobs:
           npm install
           npm run build
           npm test
-      - uses: actions/upload-artifact@master
-        with:
-          name: webpack artifacts
-          path: public/
-
  
