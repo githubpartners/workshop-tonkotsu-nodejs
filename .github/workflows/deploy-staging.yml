@@ -9,20 +9,25 @@ env:
   AZURE_WEBAPP_NAME_STAG: team-fpt2-tonkotsu-stag  #need to check & update
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10'
-      - name: npm install and build webpack
-        run: |
-          npm ci
-          npm run build
-          npm test
-      - name: Deploy app to Azure-Staging-Web app using public profile
-        uses: Azure/webapps-deploy@v2
-        with:
-         app-name: ${{env.AZURE_WEBAPP_NAME_STAG}}
-         publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+    # checkout the repo
+    - name: 'Checkout Github Action' 
+      uses: actions/checkout@master
+    
+    - name: Setup Node 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'npm install, build, and test'
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: node-rn
+        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
