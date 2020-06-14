@@ -14,20 +14,20 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-    - name: Build and Test
-      run: |
-        npm install 
-        npm run test
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Build and Test
+        run: |
+          npm install 
+          npm run test
 
-    - uses: actions/upload-artifact@master
-    with:
-      name: upload artifacts
-      path: public/
+      - uses: actions/upload-artifact@master
+      with:
+        name: upload artifacts
+        path: public/
 
 
   Build-Docker-Image:
