@@ -9,7 +9,7 @@ env:
   AZURE_WEBAPP_NAME_STAG: team-fpt2-tonkotsu-stag  #need to check & update
 
 jobs:
-  Build-Test-Staging:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
