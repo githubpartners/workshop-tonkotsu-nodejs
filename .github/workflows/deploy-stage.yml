@@ -6,73 +6,27 @@ on:
     - master
 
 env:
-  DOCKER_IMAGE_NAME: ducfilan-azure-ttt
-  IMAGE_REGISTRY_URL: docker.pkg.github.com
   AZURE_WEBAPP_NAME: tonkatsu-app
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
   NODE_VERSION: '12.x'
 
 jobs:
-  build:
+  build-and-deploy:
+    name: Build
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Build and Test
-        run: |
-          npm install 
-          npm run test
-      - run: mkdir -p public/
-      - uses: actions/upload-artifact@master
-        with:
-          name: my-artifact
-          path: public/
-
-  Build-Docker-Image:
-    runs-on: ubuntu-latest
-    needs: build
-    name: Build image and store in GitHub Packages
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: Download built artifact
-        uses: actions/download-artifact@master
-        with:
-          name: my-artifact
-          path: public
-
-      - name: create image and store in Packages
-        uses: mattdavis0351/actions/docker-gpr@1.3.0
-        with:
-          repo-token: ${{secrets.GITHUB_TOKEN}}
-          image-name: ${{env.DOCKER_IMAGE_NAME}}
-
-  Deploy-to-Azure:
-    runs-on: ubuntu-latest
-    needs: Build-Docker-Image
-    name: Deploy app container to Azure
-    steps:
-      - name: "Login via Azure CLI"
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - uses: azure/docker-login@v1
-        with:
-          login-server: ${{env.IMAGE_REGISTRY_URL}}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy web app container
-        uses: azure/webapps-container-deploy@v1
-        with:
-          app-name: ${{env.AZURE_WEBAPP_NAME}}
-          images: ${{env.IMAGE_REGISTRY_URL}}/${{ github.repository }}/${{env.DOCKER_IMAGE_NAME}}:${{ github.sha }}
-
-      - name: Azure logout
-        run: |
-          az logout
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm test
+    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
