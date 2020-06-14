@@ -1,8 +1,8 @@
 name: Staging Deployment
 
-on: 
-  pull_request:
-    types: [opened]
+#on: 
+#  pull_request:
+#    types: [opened]
 
 env:
   DOCKER_IMAGE_NAME: team-fpt2-azure     
@@ -19,7 +19,7 @@ jobs:
         node-version: [10.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
