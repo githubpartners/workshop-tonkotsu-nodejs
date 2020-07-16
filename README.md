@@ -1,5 +1,4 @@
-## Edited
-Foo Bar
+[![Board Status](https://dev.azure.com/slusk0644/afa22819-7764-4d00-a12b-a8776c8475fd/392ddf92-7f0c-4c5f-b611-6865f5e5ab4a/_apis/work/boardbadge/f3aff637-ae2e-429a-a3e1-080fb9aeba02)](https://dev.azure.com/slusk0644/afa22819-7764-4d00-a12b-a8776c8475fd/_boards/board/t/392ddf92-7f0c-4c5f-b611-6865f5e5ab4a/Microsoft.RequirementCategory/)
  
 ## Welcome
 
