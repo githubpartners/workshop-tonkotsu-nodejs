@@ -5,12 +5,13 @@ const ora = require("ora");
 const { error, get } = server.router;
 const { render, status } = server.reply;
 
+/* Do a better comment */
 const { fetchZen } = require("./lib/utils");
 
-const log404 = ctx =>
+const log404 = (ctx) =>
   console.log(chalk`{red 404}   {green ${ctx.method}}    {bold ${ctx.url}}`);
 
-const getZenQuote = async ctx => {
+const getZenQuote = async (ctx) => {
   const spinner = ora("Fetching Zen message of the day from GitHub").start();
   try {
     ctx.zen = { msg: await fetchZen() };
@@ -26,19 +27,17 @@ server(
   { log: "debug", env: "development" },
   get("/", [
     getZenQuote,
-    async ctx => {
+    async (ctx) => {
       return render("index.pug", { zen: ctx.zen });
-    }
+    },
   ]),
   // 404s
-  get(ctx => {
+  get((ctx) => {
     log404(ctx);
     return status(404);
   }),
-  error(ctx => status(500).send("Error: " + ctx.error.message))
-).then(ctx => {
+  error((ctx) => status(500).send("Error: " + ctx.error.message))
+).then((ctx) => {
   console.log(chalk`
-  {green [ OK ]} Server launched on {bold http://localhost:${
-    ctx.options.port
-  }/}`);
+  {green [ OK ]} Server launched on {bold http://localhost:${ctx.options.port}/}`);
 });
