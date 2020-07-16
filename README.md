@@ -1,5 +1,5 @@
 ## Edited
-Foo
+Foo Bar
 
 ## Welcome
 
