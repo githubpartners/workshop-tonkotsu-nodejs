@@ -6,6 +6,9 @@ This repository contains the base project part of our on-site GitHub Verified Pa
 
 This is the NodeJS version of our "Tonkotsu" workshop webapp. The codebase is pretty simple: it's a NodeJS app that will connect to GitHub's [Octocat API endpoint](https://api.github.com/octocat) and return the Zen quote of the day. E.g.:
 
+Ken was waaaaay over here
+
+
 ### Demo (sucess)
 
 ![out](https://user-images.githubusercontent.com/1078545/57860397-bc7ff380-77ec-11e9-80f8-39e02ef3c035.gif)
