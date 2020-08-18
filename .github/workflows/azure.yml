@@ -15,6 +15,8 @@
 on:
   release:
     types: [pull_request]
+    
+# change    
 
 env:
   AZURE_WEBAPP_NAME: githubdevops    # set this to your application's name
