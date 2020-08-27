@@ -1,7 +1,8 @@
 name: scp copy folder to remote via SSH
 
 on:
-  push
+  push:
+    branches: [ Devlopment ]
 
 jobs:
   build:
@@ -17,9 +18,9 @@ jobs:
             cd /opt/tonkotsu-nodejs
             killall node
             rm -rf * 
-          host: 13.229.147.148
-          username: root
-          password: github@2020
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
         env:
           CI: true
       - name: Copy folder content recursively to remote
@@ -27,9 +28,9 @@ jobs:
         with:
           local: "."
           remote: "/opt/tonkotsu-nodejs"
-          host: 13.229.147.148
-          username: root
-          password: github@2020
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
         env:
           CI: true
           
@@ -40,9 +41,9 @@ jobs:
             cd /opt/tonkotsu-nodejs
             npm install
             npm start </dev/null &>/dev/null &
-          host: 13.229.147.148
-          username: root
-          password: github@2020
+          host:  ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
         env:
           CI: true
         
