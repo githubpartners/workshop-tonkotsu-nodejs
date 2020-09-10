@@ -1,0 +1,7 @@
+name: sonar-scanner
+  # You may pin to the exact commit or the version.
+  # uses: Warchant/setup-sonar-scanner@694c60f650fc1d10936ff1106608985cbae2b4fd
+uses: Warchant/setup-sonar-scanner@v1
+  with:
+    # Sonar-scanner version
+    version: # default is 4.2.0.1873
