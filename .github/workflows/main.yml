@@ -9,5 +9,5 @@ jobs:
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@master
       with:
-        host: ${{ secrets.http://95.217.8.205:9000/projects}}
+        host: ${{ secrets.'http://95.217.8.205:9000/projects'}}
         login: ${{ secrets.56d6bb83a13f9c1defe3b24354206e44e8f90ab2 }}
