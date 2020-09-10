@@ -1,7 +1,13 @@
-name: sonar-scanner
-  # You may pin to the exact commit or the version.
-  # uses: Warchant/setup-sonar-scanner@694c60f650fc1d10936ff1106608985cbae2b4fd
-uses: Warchant/setup-sonar-scanner@v1
-  with:
-    # Sonar-scanner version
-    version: # default is 4.2.0.1873
+on: push
+name: Main Workflow
+jobs:
+  sonarQubeTrigger:
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@master
+      with:
+        host: ${{ secrets.http://95.217.8.205:9000/ }}
+        login: ${{ secrets.56d6bb83a13f9c1defe3b24354206e44e8f90ab2 }}
