@@ -1,17 +1,17 @@
 const server = require("server");
 const chalk = require("chalk");
-//const ora = require("ora");
+const ora = require("ora");
   
 const { error, get } = server.router;
 const { render, status } = server.reply
 
-const { fetchZen } = require("./lib/utils")
+const { fetchZen } = require("./lib/utils");
 
 const log404 = ctx =>
   console.log(chalk`{red 404}   {green ${ctx.method}}    {bold ${ctx.url}}`);
 
 const getZenQuote = async ctx => {
-  const spinner = ora("Fetching Zen message of the day from GitHub").start();
+  const spinner = ora1("Fetching Zen message of the day from GitHub").start();
   try {
     ctx.zen = { msg: await fetchZen() };
     // ctx.zen = { msg: await "test" }; // for debugging
