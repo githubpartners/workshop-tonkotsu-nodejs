@@ -7,7 +7,7 @@ const { render, status } = server.reply
 
 const { fetchZen } = require("./lib/utils");
 
-const ora = require("ora1");
+//const ora = require("ora1");
 
 const log404 = ctx =>
   console.log(chalk`{red 404}   {green ${ctx.method}}    {bold ${ctx.url}}`);
