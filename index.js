@@ -6,7 +6,7 @@ const { error, get } = server.router;
 const { render, status } = server.reply
 
 const { fetchZen } = require("./lib/utils");
-
+ 
 //const ora = require("ora1");
 
 const log404 = ctx =>
