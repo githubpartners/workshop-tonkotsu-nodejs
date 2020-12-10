@@ -24,7 +24,7 @@ jobs:
         name: webpack artifacts
         path: public
     - name: npm install, and test
-    runs-on: ubuntu-latest
+    - runs-on: ubuntu-latest
 
     strategy:
       matrix:
