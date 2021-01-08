@@ -1,0 +1,13 @@
+on: push
+name: Main Workflow
+jobs:
+  sonarQubeTrigger:
+    name: SonarQube Trigger
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: SonarQube Scan
+      uses: kitabisa/sonarqube-action@master
+      with:
+        host: "http://95.217.8.205:9000"
+        login: 84f5084dc1ecf1e085808d4ba72f5a36eff5223e
