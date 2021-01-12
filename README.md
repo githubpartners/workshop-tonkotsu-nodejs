@@ -42,4 +42,5 @@ Follow the coach instructions and good luck!
 
 ## プルリク承認テスト
 ## プルリク承認テストmasai
+## プルリク承認テストmasai2
 
