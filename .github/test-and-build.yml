@@ -1,1 +1,14 @@
+name: Node build and test
 
+on : [push]
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - users: actions/checkout@v2
+      - name: npm install and build
+      run: | 
+        npm install
+        npm run build --if-present
+        npm test
