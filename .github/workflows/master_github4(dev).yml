@@ -4,7 +4,7 @@
 name: Build and deploy Node.js app to Azure Web App - github4(dev)
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
