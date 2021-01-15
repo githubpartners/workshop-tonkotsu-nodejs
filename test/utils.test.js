@@ -13,6 +13,7 @@ describe("Utils", function() {
   describe("greetings", function() {
     it("Says Hello World", function() {
       assert.equal(utils.greetings("World"), "Hello World 👋👋");
+      // TEST2 - assert.equal(true);
     });
 
     it("Throws on missing params", function() {
