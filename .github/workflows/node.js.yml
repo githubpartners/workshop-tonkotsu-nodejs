@@ -15,17 +15,14 @@ jobs:
     - run: npm run build --if-present
     - run: npm test
   static-code-analysis:
+    name: SonarCloud Trigger
     runs-on: ubuntu-latest
     steps:
      - name: Checkout the code
        uses: actions/checkout@v2
-     - name: set up JDK
-       uses: actions/setup-java@v1
-       with:
-         java-version: 11
-
-     - name: SonarCloud Scan
-       run: ./gradlew app:sonarqube -Dsonar.login=${{secrets.Sonar_TOKEN }}
+     - name: Analyze with SonarCloud
+       uses: sonarsource/sonarcloud-github-action@v1.3
        env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}    
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
      
