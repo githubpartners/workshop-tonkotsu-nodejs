@@ -14,3 +14,10 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+  static-code-analysis:
+    runs-on: ubuntu-latest
+    steps:
+     - name: Checkout the code
+       uses: actions/checkout@v2
+     - name: set up JDK
+     
