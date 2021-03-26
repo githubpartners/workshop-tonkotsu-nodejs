@@ -8,6 +8,6 @@ jobs:
     steps:
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
-          project: Demo
-          column: In progress
+          project: hello
+          column: two
           repo-token: ${{ secrets.GITHUB_TOKEN }}
