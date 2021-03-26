@@ -9,5 +9,5 @@ jobs:
       - uses: alex-page/github-project-automation-plus@v0.3.0
         with:
           project: Demo
-          column: In progredd
+          column: In progress
           repo-token: ${{ secrets.GITHUB_TOKEN }}
