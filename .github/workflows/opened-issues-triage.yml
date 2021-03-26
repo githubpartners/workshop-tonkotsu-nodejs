@@ -10,7 +10,7 @@ jobs:
         with:
           project: hello
           column: one
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GH_TOKEN }}
           
           
           
