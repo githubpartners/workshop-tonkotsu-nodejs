@@ -1,5 +1,3 @@
-
-    
 name: Move assigned pull requests into To do
 on:
   pull_request:
