@@ -1,4 +1,4 @@
-# MODIF 
+Correction d'une issue de la doc. 
 
 ## Welcome stephgou
 
