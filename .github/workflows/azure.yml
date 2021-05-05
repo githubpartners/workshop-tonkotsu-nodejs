@@ -49,7 +49,7 @@ jobs:
       with:
         slot-name: ${{ env.AZURE_WEBAPP_STAGING_SLOT_NAME }}
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.STAGING_PUBLISH_PROFILE }}
+        publish-profile: ${{ secrets.STAGING_PUBLISHPROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
         
     
