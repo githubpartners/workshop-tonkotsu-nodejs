@@ -32,7 +32,7 @@ Tests:
 npm run test
 ```
 
-> Note to Windows user: Test might not work on Windows
+> Note to Windows user: Test might not work on Windows !
 
 Run server (defaults to localhost:3000):
 
