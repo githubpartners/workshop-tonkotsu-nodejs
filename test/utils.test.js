@@ -9,6 +9,10 @@ var mochaAsync = fn => {
   };
 };
 
+it("Should fail", function() {
+  assert.equals(true, false);
+});
+
 describe("Utils", function() {
   describe("greetings", function() {
     it("Says Hello World", function() {
