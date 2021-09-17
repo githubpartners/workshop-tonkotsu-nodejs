@@ -1,0 +1,33 @@
+name: Build, Test & Check Pull Request
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  Build:
+    name: Code Analysis, Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check for secrets
+        uses: reviewdog/action-detect-secrets@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review # Change reporter.
+
+      - name: Check for spelling mistakes
+        uses: typoci/spellcheck-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install npm dependencies
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
