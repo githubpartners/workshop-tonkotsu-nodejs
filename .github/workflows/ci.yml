@@ -2,7 +2,13 @@ name: Build, Test & Check Pull Request
 
 on:
   push:
-    branches: [main]
+    branches: [master, main]
+
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Reason"
+        required: true
 
 jobs:
   Build:
