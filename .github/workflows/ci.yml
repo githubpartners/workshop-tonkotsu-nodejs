@@ -32,8 +32,10 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
-      - name: Run linting
-        run: npm run lint
+      # - name: Run linting
+      #   run: npm run lint
 
-      - name: Test
+      - name: Run test
         run: npm run test
+      # - name: Run coverage
+      #   run: npm run coverage
