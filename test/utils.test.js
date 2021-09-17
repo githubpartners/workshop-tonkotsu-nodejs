@@ -1,9 +1,9 @@
 var assert = require("assert");
 var utils = require("../lib/utils");
 
-var mochaAsync = fn => {
-  return done => {
-    fn.call().then(done, err => {
+var mochaAsync = (fn) => {
+  return (done) => {
+    fn.call().then(done, (err) => {
       done(err);
     });
   };
@@ -12,7 +12,7 @@ var mochaAsync = fn => {
 describe("Utils", function() {
   describe("greetings", function() {
     it("Says Hello World", function() {
-      assert.equal(utils.greetings("World"), "Hello World 👋👋");
+      assert.equal(utils.greetings("World"), "Hello World 👋👋!");
     });
 
     it("Throws on missing params", function() {
