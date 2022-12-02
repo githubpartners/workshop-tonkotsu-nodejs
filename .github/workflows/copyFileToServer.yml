@@ -1,0 +1,50 @@
+name: scp copy folder to remote via SSH
+
+on:
+  push:
+    branches: [ Devlopment ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout1
+        uses: actions/checkout@v1
+      - name: Removeing the old distribution
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            cd /opt/tonkotsu-nodejs
+            killall node
+            rm -rf * 
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+        env:
+          CI: true
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: "."
+          remote: "/opt/tonkotsu-nodejs"
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+        env:
+          CI: true
+          
+      - name: Install the module and Run stagging server
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: |
+            cd /opt/tonkotsu-nodejs
+            npm install
+            npm start </dev/null &>/dev/null &
+          host:  ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+        env:
+          CI: true
+        
+    
